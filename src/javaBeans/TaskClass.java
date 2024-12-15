@@ -2,9 +2,6 @@ package javaBeans;
 
 import com.sun.source.util.TaskListener;
 import java.util.Scanner;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 
 public class TaskClass {
 		private String name;

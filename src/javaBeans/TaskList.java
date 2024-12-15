@@ -2,8 +2,6 @@ package javaBeans;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskList {
     // Atributos
@@ -55,22 +53,58 @@ public class TaskList {
 
 
 	// add new task
+ // add new task
     public void addTask() {
-    	System.out.println("Enter task description: ");
-    	String description=scanner.nextLine();
-    	TaskClass newTask= new TaskClass();
+        System.out.println("Enter task name: ");
+        String name = scanner.nextLine();
+
+        System.out.println("Enter task timeout date : ");
+        String timeOutDate = scanner.nextLine();
+
+        System.out.println("Is the task already made? (true/false): ");
+        boolean isMade = scanner.nextBoolean();
+        scanner.nextLine();
+        System.out.println("Is the task timed out? (true/false): ");
+        boolean isTimeOut = scanner.nextBoolean();
+        scanner.nextLine();
+
+        // Crear una nueva tarea
+        TaskClass newTask = new TaskClass();
+        newTask.setName(name);
+        newTask.setTimeOutDate(timeOutDate);
+        newTask.setMade(isMade);
+        newTask.setTimeOut(isTimeOut);
+
+        // Asignar un ID único para la tarea, basado en el índice de la lista
+        newTask.setIdTask(index + 1);
+
+        // Agregar la nueva tarea a la lista
         taskList.add(newTask);
         index++;
+        System.out.println("Task added successfully.");
     }
+
 
     // mark task as made
     public void taskMade(int idTask) {
-    	TaskClass taskToUpdate= null;
+        TaskClass taskToUpdate = null;
+        // Buscar la tarea con el idTask dado
         for (TaskClass task : taskList) {
-        	taskToUpdate=task;
-        	break;
+            if (task.getIdTask() == idTask) {
+                taskToUpdate = task;
+                break; // Salir del bucle una vez que encontremos la tarea
+            }
+        }
+        
+        // Si encontramos la tarea, la marcamos como hecha
+        if (taskToUpdate != null) {
+            taskToUpdate.setMade(true); // Suponiendo que tienes un setter `setMade()`
+            System.out.println("Task marked as completed.");
+        } else {
+            System.out.println("Task not found.");
         }
     }
+
 
     // remove task of list
     public void removeTaskByIndex(int index) throws Exception {  
