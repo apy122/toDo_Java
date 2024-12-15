@@ -72,6 +72,12 @@ public class TaskClass {
 		public void setTask2(TaskList task2) {
 			this.task2 = task2;
 		}
+		
+		@Override
+		public String toString() {
+			return "TaskClass [name=" + name + ", idTask=" + idTask + ", timeOutDate=" + timeOutDate + ", isTimeOut="
+					+ isTimeOut + ", scanner=" + scanner + ", isMade=" + isMade + ", task2=" + task2 + "]";
+		}
 
 		public void updateIdTask() {
 			for (idTask=1; idTask<task2.getTaskList().size();idTask++) {

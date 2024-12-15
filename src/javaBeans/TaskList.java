@@ -32,7 +32,13 @@ public class TaskList {
     public void setScanner(Scanner scanner) {
         this.scanner = scanner;
     }
-
+    
+    //toString
+    @Override
+   	public String toString() {
+   		return "TaskList [taskList=" + taskList + ", scanner=" + scanner + ", index=" + index + "]";
+   	}
+    
     //show tasks
     public void showTask() {
         if (taskList.isEmpty()) {
@@ -45,7 +51,8 @@ public class TaskList {
          }
     }
 
-    // add new task
+
+	// add new task
     public void addTask() {
     	System.out.println("Enter task description: ");
     	String description=scanner.nextLine();
