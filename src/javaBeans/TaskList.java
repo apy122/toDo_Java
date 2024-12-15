@@ -2,6 +2,8 @@ package javaBeans;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskList {
     // Atributos
