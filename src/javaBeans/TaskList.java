@@ -55,32 +55,28 @@ public class TaskList {
     }
 
     // mark task as made
-    public void taskMade() {
-        System.out.print("Introduce el ID de la tarea terminada: ");
-        int y = scanner.nextInt();
-        if (y >= 0 && y < taskList.size()) {
-            TaskClass task = taskList.get(y); 
-            task.timeOutTask();  
-            System.out.println("La tarea con ID " + y + " ha sido marcada como terminada.");
-        } else {
-            throw new IllegalArgumentException("Inserte una opción válida.");
+    public void taskMade(int idTask) {
+    	TaskClass taskToUpdate= null;
+        for (TaskClass task : taskList) {
+        	taskToUpdate=task;
+        	break;
         }
     }
 
     // remove task of list
-    public void removeTask(int id) {
-        if (id >= 0 && id < taskList.size()) {
-            taskList.remove(id);
-            System.out.println("Tarea con ID " + id + " eliminada.");
+    public void removeTaskByIndex(int index) throws Exception {  
+        if (index >= 0 && index < taskList.size()) {
+            taskList.remove(index);
+            System.out.println("Tarea con índice " + index + " eliminada.");
         } else {
-            System.out.println("Índice de tarea no válido.");
+            throw new Exception("Índice de tarea no válido.");
         }
     }
-
+    
     // searchTask: busca una tarea por ID
     public TaskClass searchTask(int id) {
         for (TaskClass task : taskList) {
-            if (task.getIdTarea() == id) {
+            if (task.getIdTask() == id) {
                 return task;
             }
         }

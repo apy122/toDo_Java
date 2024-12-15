@@ -1,48 +1,52 @@
 package javaBeans;
 
+import com.sun.source.util.TaskListener;
+
 import java.util.Scanner;
 
 public class TaskClass {
-		private String nombre;
-		private int idTarea;
-		private String fechaVencimiento;
-		private boolean estaVencida;
+		private String name;
+		private int idTask;
+		private String timeOutDate;
+		private boolean isTimeOut;
 		private Scanner scanner;
+		private boolean isMade;
+		private TaskList task2= new TaskList();
 		public TaskClass() {
 			super();
 		}
-		
 
-		public String getNombre() {
-			return nombre;
+		//geter and seter
+		public String getName() {
+			return name;
 		}
 
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
+		public void setName(String name) {
+			this.name = name;
 		}
 
-		public int getIdTarea() {
-			return idTarea;
+		public int getIdTask() {
+			return idTask;
 		}
 
-		public void setIdTarea(int idTarea) {
-			this.idTarea = idTarea;
+		public void setIdTask(int idTask) {
+			this.idTask = idTask;
 		}
 
-		public String getFechaVencimiento() {
-			return fechaVencimiento;
+		public String getTimeOutDate() {
+			return timeOutDate;
 		}
 
-		public void setFechaVencimiento(String fechaVencimiento) {
-			this.fechaVencimiento = fechaVencimiento;
+		public void setTimeOutDate(String timeOutDate) {
+			this.timeOutDate = timeOutDate;
 		}
 
-		public boolean isEstaVencida() {
-			return estaVencida;
+		public boolean isTimeOut() {
+			return isTimeOut;
 		}
 
-		public void setEstaVencida(boolean estaVencida) {
-			this.estaVencida = estaVencida;
+		public void setTimeOut(boolean isTimeOut) {
+			this.isTimeOut = isTimeOut;
 		}
 
 		public Scanner getScanner() {
@@ -53,23 +57,49 @@ public class TaskClass {
 			this.scanner = scanner;
 		}
 
-		@Override
-		public String toString() {
-			return "Task{" +
-					"nombre='" + nombre + '\'' +
-					", idTarea=" + idTarea +
-					", fechaVencimiento='" + fechaVencimiento + '\'' +
-					", estaVencida=" + estaVencida +
-					", scanner=" + scanner +
-					'}';
+		public boolean getisMade() {
+			return isMade;
 		}
 
-		public void updateIdTarea() {
-			for (idTarea=1; idTarea<100 ;idTarea++) {
-				idTarea++;
+		public void setMade(boolean isMade) {
+			this.isMade = isMade;
+		}
+
+		public TaskList getTask2() {
+			return task2;
+		}
+
+		public void setTask2(TaskList task2) {
+			this.task2 = task2;
+		}
+
+		public void updateIdTask() {
+			for (idTask=1; idTask<task2.getTaskList().size();idTask++) {
+				idTask ++;
 			}
 		}
 		public void timeOutTask() {
-			this.estaVencida=true;
+			this.isTimeOut=true;
+		}
+		
+		public void isMadeTask() {
+			this.isMade=true;
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
