@@ -1,6 +1,4 @@
 package javaBeans;
-
-import com.sun.source.util.TaskListener;
 import java.util.Scanner;
 
 public class TaskClass {
@@ -77,16 +75,20 @@ public class TaskClass {
 			return "TaskClass [name=" + name + ", idTask=" + idTask + ", timeOutDate=" + timeOutDate + ", isTimeOut="
 					+ isTimeOut + ", scanner=" + scanner + ", isMade=" + isMade + ", task2=" + task2 + "]";
 		}
-
+		
+		//method to updfate id task
 		public void updateIdTask() {
 			for (idTask=1; idTask<task2.getTaskList().size();idTask++) {
 				idTask ++;
 			}
 		}
+		
+		//method to mark tinme out task
 		public void timeOutTask() {
 			this.isTimeOut=true;
 		}
 		
+		//method to mark task as make
 		public void isMadeTask() {
 			this.isMade=true;
 		}

@@ -6,8 +6,17 @@ public class JavaMenu {
     private int option;
     private final Scanner scanner=new Scanner(System.in);
     private ArrayList<String>menu;
-    // Crear el menú
+    
+    
+    public JavaMenu() {
+		super();
+		createMenu();
+		showMenu();
+	}
+
+	// Create menu
     private void createMenu() {
+    	menu= new ArrayList<>();
         menu.add("1. Mostrar lista de tareas");
         menu.add("2. Agregar tarea");
         menu.add("3. Mark task done");
@@ -16,12 +25,12 @@ public class JavaMenu {
         menu.add("6. Salir");
     }
 
-    // Mostrar el menú y gestionar opciones
+    // show menu
     public void showMenu() {
-        while (option != 4) {
+        while (option != 6) {
             System.out.println("\n==== Menú ====");
-            for (String menuItem : menu) {
-                System.out.println(menuItem);
+            for (String JavaMenu : menu) {
+                System.out.println(JavaMenu);
             }
             System.out.print("Selecciona una opción: ");
             if (scanner.hasNextInt()) {
@@ -36,7 +45,7 @@ public class JavaMenu {
         scanner.close();
     }
 
-    // Manejar las opciones del menú
+    // menu options
     private void handleOption(int option) {
         switch (option) {
             case 1:
@@ -50,8 +59,10 @@ public class JavaMenu {
                 break;
             case 4:
                 //taskMade();
+            	break;
             case 5:
                 //searchTask();
+            	break;
             case 6:
                 System.out.println("Saliendo del programa...");
                 break;

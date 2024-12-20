@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TaskList {
-    // Atributos
+    // Atributes
     private ArrayList<TaskClass> taskList;
     private Scanner scanner;
     private int index;
 
-    // Constructor
+    // builder
     public TaskList() {
         this.taskList = new ArrayList<>();
         this.scanner = new Scanner(System.in);
@@ -54,31 +54,19 @@ public class TaskList {
 
 	// add new task
  // add new task
-    public void addTask() {
-        System.out.println("Enter task name: ");
-        String name = scanner.nextLine();
+    public void addTask(String name, String timeOutDate, boolean isMade, boolean isTimeOut) {
 
-        System.out.println("Enter task timeout date : ");
-        String timeOutDate = scanner.nextLine();
-
-        System.out.println("Is the task already made? (true/false): ");
-        boolean isMade = scanner.nextBoolean();
-        scanner.nextLine();
-        System.out.println("Is the task timed out? (true/false): ");
-        boolean isTimeOut = scanner.nextBoolean();
-        scanner.nextLine();
-
-        // Crear una nueva tarea
+        // create new task
         TaskClass newTask = new TaskClass();
         newTask.setName(name);
         newTask.setTimeOutDate(timeOutDate);
         newTask.setMade(isMade);
         newTask.setTimeOut(isTimeOut);
 
-        // Asignar un ID único para la tarea, basado en el índice de la lista
+        //Asign id to task
         newTask.setIdTask(index + 1);
 
-        // Agregar la nueva tarea a la lista
+        // add task to tasklist
         taskList.add(newTask);
         index++;
         System.out.println("Task added successfully.");
@@ -88,17 +76,17 @@ public class TaskList {
     // mark task as made
     public void taskMade(int idTask) {
         TaskClass taskToUpdate = null;
-        // Buscar la tarea con el idTask dado
+        // search task in tasklist
         for (TaskClass task : taskList) {
             if (task.getIdTask() == idTask) {
                 taskToUpdate = task;
-                break; // Salir del bucle una vez que encontremos la tarea
+                break;
             }
         }
         
-        // Si encontramos la tarea, la marcamos como hecha
+        //if found mask as done
         if (taskToUpdate != null) {
-            taskToUpdate.setMade(true); // Suponiendo que tienes un setter `setMade()`
+            taskToUpdate.setMade(true);
             System.out.println("Task marked as completed.");
         } else {
             System.out.println("Task not found.");
@@ -116,7 +104,7 @@ public class TaskList {
         }
     }
     
-    // searchTask: busca una tarea por ID
+    // search task
     public TaskClass searchTask(int id) {
         for (TaskClass task : taskList) {
             if (task.getIdTask() == id) {
@@ -124,7 +112,7 @@ public class TaskList {
             }
         }
         System.out.println("Tarea no encontrada.");
-        return null;  // Devuelve null si no encuentra la tarea
+        return null;
     }
 }
 
