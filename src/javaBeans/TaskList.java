@@ -5,23 +5,21 @@ import java.util.Scanner;
 
 public class TaskList {
     // Atributes
-    private ArrayList<TaskClass> taskList;
+    private ArrayList<TaskClass> taskList= new ArrayList<TaskClass>();
     private Scanner scanner;
     private int index;
 
     // builder
     public TaskList() {
-        this.taskList = new ArrayList<>();
-        this.scanner = new Scanner(System.in);
-        this.index = 0;
-    }
+		super();
+	}
 
     // Getters and setters
     public ArrayList<TaskClass> getTaskList() {
         return taskList;
     }
 
-    public void setTaskList(ArrayList<TaskClass> taskList) {
+	public void setTaskList(ArrayList<TaskClass> taskList) {
         this.taskList = taskList;
     }
 
@@ -35,25 +33,23 @@ public class TaskList {
     
     //toString
     @Override
-   	public String toString() {
-   		return "TaskList [taskList=" + taskList + ", scanner=" + scanner + ", index=" + index + "]";
-   	}
+	public String toString() {
+		return "TaskList [taskList=" + taskList + "index=" + index + "]";
+	}
+
     
     //show tasks
     public void showTask() {
         if (taskList.isEmpty()) {
             System.out.println("No tasks available.");
         } else {
-            for (int i = 0; i < taskList.size(); i++) {
-                TaskClass task = taskList.get(i);
-                System.out.println("Tasks:" + taskList);
+            for (TaskClass task: taskList) {
+                System.out.println("Tasks:" + task);
             }
          }
     }
 
-
 	// add new task
- // add new task
     public void addTask(String name, String timeOutDate, boolean isMade, boolean isTimeOut) {
 
         // create new task
